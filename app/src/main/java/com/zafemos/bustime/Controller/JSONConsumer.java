@@ -3,12 +3,14 @@ package com.zafemos.bustime.Controller;
 import android.os.Message;
 import android.util.JsonReader;
 
+import com.zafemos.bustime.Model.TimeTable;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * Created by fernando on 30/04/15.
@@ -38,39 +40,75 @@ public class JSONConsumer {
         }
 
     public Message readMsg(JsonReader reader) throws IOException {
+
         String origin = null;
         String destiny = null;
-        ArrayList<Date> days = new ArrayList<Date>();
+
+        List days = new ArrayList();
+        List<TimeTable> timeTables;
+
+        reader.beginObject();
+
+        while (reader.hasNext())
+        {
+            String name = reader.nextName();
+
+                 if (name.equals("origin"))    origin = reader.nextString();
+            else if (name.equals("destiny"))   destiny = reader.nextString();
+            else if (name.equals("days")) { } //completar
+            else if (name.equals("timetable")) timeTables = readTimeTable(reader);
+
+        }
+
+        reader.endObject();
+
         return new Message();
 
     }
 
-    /**
-     public Message readMessage(JsonReader reader) throws IOException {
-     long id = -1;
-     String text = null;
-     User user = null;
-     List geo = null;
+    public List<TimeTable> readTimeTable(JsonReader reader) throws IOException {
+        List<TimeTable> timetables = new ArrayList<TimeTable>();
+        TimeTable timeTable = new TimeTable();
+        List<Integer> bustime = new ArrayList<Integer>();
 
-     reader.beginObject();
-     while (reader.hasNext()) {
-     String name = reader.nextName();
-     if (name.equals("id")) {
-     id = reader.nextLong();
-     } else if (name.equals("text")) {
-     text = reader.nextString();
-     } else if (name.equals("geo") && reader.peek() != JsonToken.NULL) {
-     geo = readDoublesArray(reader);
-     } else if (name.equals("user")) {
-     user = readUser(reader);
-     } else {
-     reader.skipValue();
-     }
-     }
-     reader.endObject();
-     return new Message(id, text, user, geo);
-     }
 
-     */
+        reader.beginArray();
+
+        while(reader.hasNext())
+        {
+
+            if(reader.equals("time"))
+            {
+                bustime = readTime(reader.nextString());
+                timeTable.setHours(bustime.get(0));
+                timeTable.setMinutes(bustime.get(1));
+            }
+            else if (reader.equals("branch"))
+            {
+                timeTable.setBranch(reader.nextString());
+            }
+
+            timetables.add(timeTable);
+
+        }
+
+        reader.endArray();
+
+        return timetables;
+
+    }
+
+    public List<Integer> readTime(String time){
+
+        List<Integer> bustime = new ArrayList<Integer>();
+        StringTokenizer tokenizer = new StringTokenizer(time,":");
+
+        bustime.add(Integer.parseInt(tokenizer.nextToken()));
+        bustime.add(Integer.parseInt(tokenizer.nextToken()));
+
+        return bustime;
+
+    }
+
 
 }

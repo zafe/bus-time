@@ -1,13 +1,12 @@
 package com.zafemos.bustime.Model;
 
-import java.util.Calendar;
-
 /**
  * Created by fernando on 01/05/15.
  */
 public class TimeTable {
 
-    private Calendar time;
+    private int hours;
+    private int minutes;
     private String branch = null;
 
     public String getBranch() {
@@ -18,11 +17,19 @@ public class TimeTable {
         this.branch = branch;
     }
 
-    public Calendar getTime() {
-        return time;
+    public int getHours() {
+        return hours;
     }
 
-    public void setTime(Calendar time) {
-        this.time = time;
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 }
