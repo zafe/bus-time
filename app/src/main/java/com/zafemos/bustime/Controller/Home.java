@@ -29,7 +29,7 @@ public class Home extends ListActivity {
     private ProgressDialog pDialog;
 
     // URL to get buses JSON
-    private static String url = "http://api.androidhive.info/buses/";
+    private static String url = "https://api.myjson.com/bins/2khut";
 
     // JSON Node names
     private static final String TAG_BUSES = "buses";
