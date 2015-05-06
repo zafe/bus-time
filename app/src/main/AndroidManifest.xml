@@ -7,14 +7,22 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- Internet permission -->
+        <uses-permission android:name="android.permission.INTERNET" />
+
         <activity
-            android:name="com.zafemos.bustime.Controller.Home"
+            android:name=".Home"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SingleBusActivity"
+            android:label="@string/title_activity_single_bus" >
         </activity>
     </application>
 
