@@ -1,5 +1,6 @@
 package com.zafemos.bustime.Controller;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -20,7 +21,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 
 public class Home extends ListActivity {
@@ -42,13 +45,17 @@ public class Home extends ListActivity {
     // Hashmap for ListView
     ArrayList<HashMap<String, String>> busList;
 
+    //Today date
+    private TextView todayDate;
+    //private String date = Calendar.getInstance().getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
-
+    //todayDate.setText("MIERCOLES 22");
         busList = new ArrayList<HashMap<String, String>>();
 
         ListView lv = getListView();
@@ -60,19 +67,19 @@ public class Home extends ListActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // getting values from selected ListItem
-                String name = ((TextView) view.findViewById(R.id.origin))
+                String origin = ((TextView) view.findViewById(R.id.origin))
                         .getText().toString();
-                String cost = ((TextView) view.findViewById(R.id.destiny))
+                String destiny = ((TextView) view.findViewById(R.id.destiny))
                         .getText().toString();
-                String description = ((TextView) view.findViewById(R.id.time))
+                String time = ((TextView) view.findViewById(R.id.time))
                         .getText().toString();
 
                 // Starting single contact activity
                 Intent in = new Intent(getApplicationContext(),
                         SingleBusActivity.class);
-                in.putExtra(TAG_ORIGIN, name);
-                in.putExtra(TAG_DESTINY, cost);
-                in.putExtra(TAG_TIME, description);
+                in.putExtra(TAG_ORIGIN, origin);
+                in.putExtra(TAG_DESTINY, destiny);
+                in.putExtra(TAG_TIME, time);
                 startActivity(in);
 
             }
@@ -93,7 +100,7 @@ public class Home extends ListActivity {
             super.onPreExecute();
             // Showing progress dialog
             pDialog = new ProgressDialog(Home.this);
-            pDialog.setMessage("Please wait...");
+            pDialog.setMessage("Actualizando datos");
             pDialog.setCancelable(false);
             pDialog.show();
 
@@ -179,7 +186,13 @@ public class Home extends ListActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if(id == R.id.update) {
+            new JSONParser().execute();
+        }
+        else if (id == R.id.about) {
+            Intent aboutActivity = new Intent(getApplicationContext(),
+                    AboutActivity.class);
+            startActivity(aboutActivity);
             return true;
         }
         return super.onOptionsItemSelected(item);

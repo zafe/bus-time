@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ACERCA DE"
+        android:textStyle="bold|italic"
+        android:textSize="12pt"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_dark"
+        android:id="@+id/textView" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".5"
+            android:drawableBottom="@drawable/ic_launcher"
+            android:background="@android:color/holo_blue_light"
+             />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".5"
+            android:gravity="top|center"
+            android:text="Creado por\n Omar Zafe"
+            android:textSize="8pt"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_blue_light"
+            />
+
+        </LinearLayout>
+
+
+
+
+</LinearLayout>

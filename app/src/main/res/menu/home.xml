@@ -1,8 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Home" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/update"
+        android:title="@string/update"
+        android:icon="@android:drawable/ic_popup_sync"
         android:orderInCategory="100"
         android:showAsAction="never" />
+    <item android:id="@+id/about"
+        android:title="@string/about"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
 </menu>
