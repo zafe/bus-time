@@ -1,6 +1,5 @@
 package com.zafemos.bustime.Controller;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,7 +28,7 @@ public class Home extends ListActivity {
     private ProgressDialog pDialog;
 
     // URL to get buses JSON
-    private static String url = "https://api.myjson.com/bins/2khut";
+    private static String url = "https://gist.githubusercontent.com/zafemos/c1e06aefe6b57e8fe6a6/raw/6985e2efd162aca037cc22c358500c32307c0a84/bus.json";
 
     // JSON Node names
     private static final String TAG_BUSES = "buses";
@@ -157,7 +156,7 @@ public class Home extends ListActivity {
              * */
             ListAdapter adapter = new SimpleAdapter(
                     Home.this, busList,
-                    R.layout.list_item, new String[] { TAG_ORIGIN,
+                    R.layout.list_item_red, new String[] { TAG_ORIGIN,
                     TAG_DESTINY, TAG_TIME}, new int[] { R.id.origin,
                     R.id.destiny, R.id.time });
 
