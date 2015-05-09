@@ -1,0 +1,55 @@
+{
+    "buses":[
+{
+	"origin":"La Florida",
+	"destiny":"Delfin Gallo",
+	"time":"05:30"
+},
+{
+	"origin":"Los Ralos",
+	"destiny":"Ranchillos",
+	"time":"07:25"
+},
+{
+	"origin":"La Florida",
+	"destiny":"SM de Tucuman",
+	"time":"06:30"
+},
+{
+	"origin":"La Florida",
+	"destiny":"SM de Tucuman",
+	"time":"08:30"
+},
+{
+	"origin":"La Florida",
+	"destiny":"SM de Tucuman",
+	"time":"10:00"
+},
+{
+	"origin":"Delfin Gallo",
+	"destiny":"SM de Tucuman",
+	"time":"13:30"
+},
+{
+	"origin":"SM Tucuman",
+	"destiny":"La Florida",
+	"time":"18:30"
+},
+{
+	"origin":"SM Tucuman",
+	"destiny":"La Florida",
+	"time":"19:45"
+},
+{
+	"origin":"SM Tucuman",
+	"destiny":"La Florida",
+	"time":"20:15"
+},
+{
+	"origin":"La Florida",
+	"destiny":"SM de Tucuman",
+	"time":"23:20"
+}
+
+]
+}

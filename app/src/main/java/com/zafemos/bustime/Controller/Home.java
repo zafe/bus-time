@@ -31,7 +31,7 @@ public class Home extends ListActivity {
     private ProgressDialog pDialog;
 
     // URL to get buses JSON
-    private static String url = "https://gist.githubusercontent.com/zafemos/c1e06aefe6b57e8fe6a6/raw/6985e2efd162aca037cc22c358500c32307c0a84/bus.json";
+    private static String url = "https://raw.githubusercontent.com/zafemos/bus-time/master/timetable.json";
 
     // JSON Node names
     private static final String TAG_BUSES = "buses";
