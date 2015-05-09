@@ -27,6 +27,10 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+        <activity
+            android:name=".MoreInfo"
+            android:label="@string/title_activity_more_info" >
+        </activity>
     </application>
 
     <!-- Internet permission -->

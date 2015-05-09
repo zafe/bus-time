@@ -20,6 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -47,7 +48,8 @@ public class Home extends ListActivity {
 
     //Today date
     private TextView todayDate;
-    //private String date = Calendar.getInstance().getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US);
+    AppUtils utils = AppUtils.getInstance();
+
 
 
     @Override
@@ -55,7 +57,10 @@ public class Home extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-    //todayDate.setText("MIERCOLES 22");
+        todayDate = (TextView) findViewById(R.id.today_date);
+
+        todayDate.setText(utils.getDate());
+
         busList = new ArrayList<HashMap<String, String>>();
 
         ListView lv = getListView();

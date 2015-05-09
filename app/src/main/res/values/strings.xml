@@ -9,5 +9,6 @@
     <string name="title_activity_single_bus">SingleBusActivity</string>
     <string name="title_activity_about">Acerca de</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_more_info">More Info</string>
 
 </resources>

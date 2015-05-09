@@ -1,0 +1,17 @@
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/holo_red_light"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:text="DETALLES"
+        android:textColor="@android:color/white"
+        android:textSize="40dp"
+        />
+
+
+    </LinearLayout>
