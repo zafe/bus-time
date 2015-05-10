@@ -81,7 +81,7 @@ public class Home extends ListActivity {
 
                 // Starting single contact activity
                 Intent in = new Intent(getApplicationContext(),
-                        SingleBusActivity.class);
+                        MoreInfo.class);
                 in.putExtra(TAG_ORIGIN, origin);
                 in.putExtra(TAG_DESTINY, destiny);
                 in.putExtra(TAG_TIME, time);
